@@ -17,10 +17,10 @@ public class ContaUnica {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String aux;
-        int opcao, numero;
+        int opcao, numero, numero2;
         double valor;
         ArrayList<Conta> lc = new ArrayList();
-        Conta c1;
+        Conta c1, c2;
         
         do{
             System.out.println("");
@@ -30,6 +30,7 @@ public class ContaUnica {
             System.out.println("2) Dados Bancários");
             System.out.println("3) Depósito");
             System.out.println("4) Saque");
+            System.out.println("5) Transferência");
             System.out.println("0) Sair");
             System.out.println("");
             
@@ -73,11 +74,9 @@ public class ContaUnica {
                     valor = in.nextDouble();
                 
                     c1.Depositar(valor);
-                    
-                        break;
+                    break;
                 
                 case 4: 
-                    
                     System.out.println("Digite o número da conta: ");
                     numero = in.nextInt();
                     
@@ -87,6 +86,22 @@ public class ContaUnica {
                     valor = in.nextDouble();
                 
                     c1.Sacar(valor);
+                    
+                        break;
+                
+                case 5: 
+                    System.out.println("Digite o número da conta de origem: ");
+                    numero = in.nextInt();
+                    c1 = lc.get(numero-1);
+                    
+                    System.out.println("Digite o número da conta de destino: ");
+                    numero2 = in.nextInt();
+                    c2 = lc.get(numero2-1);
+                    
+                    System.out.println("Digite o valor da transferência: ");
+                    valor = in.nextDouble();
+                
+                    c1.Transferir(c2, valor);
                     
                         break;
                 

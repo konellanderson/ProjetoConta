@@ -60,4 +60,25 @@ public class Conta {
           
     }
     
+    public void Transferir(Conta pDest, double pValor){
+        
+        System.out.println("");
+        System.out.println("-- Realizando Transferência --");
+        System.out.println("- Saldo Anterior Origem: "+ this.saldo);
+        System.out.println("- Saldo Anterior Destino: "+ pDest.saldo);
+        
+        if(pValor <= this.saldo){
+            this.saldo -= pValor;
+            pDest.saldo += pValor;
+            System.out.println("- Saldo Posterior Origem: "+ this.saldo);
+            System.out.println("- Saldo Posterior Destino: "+ pDest.saldo);
+        }
+        else{
+            System.out.println("- Saldo Insulficiente");
+        }
+        System.out.println("-- Fim do Transferência --");
+        System.out.println("");
+        
+    }
+    
 }
